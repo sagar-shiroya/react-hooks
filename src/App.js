@@ -5,7 +5,7 @@ const CreateArray = (length) => [...Array(length)];
 
 function Star({selected, onSelect}) {
   return (
-    <FaStar size='50' color={selected ? '#60D6F7' : 'lightgrey'} onClick={onSelect}/>
+    <FaStar size='50' color={selected ? 'rgb(49, 255, 186)' : 'lightgrey'} onClick={onSelect}/>
   );
 }
 
@@ -17,7 +17,9 @@ function StarRating ({ totalStars }) {
       {CreateArray(totalStars).map((n,i)=>(
         <Star key={i} selected={selectedStars > i} 
         onSelect={()=>setSelectedStars(i+1)}/>))}
-      <p>Selected {selectedStars} of {totalStars}</p>
+      <p className='rating__text'>
+        <span>Ratings: {selectedStars} of {totalStars}</span>
+      </p>
       </>
     );
 }
@@ -25,7 +27,9 @@ function StarRating ({ totalStars }) {
 function App() {
   return(
     <>
-      <h2>Ratings using useState hook</h2>
+      <h2>
+        <span>Ratings using useState hook</span>
+      </h2>
       <StarRating totalStars={5} />
     </>
   );
