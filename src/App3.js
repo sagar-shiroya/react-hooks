@@ -9,6 +9,8 @@ function App3() {
         const soundVal = sound.current.value;
         const colorVal = color.current.value;
         alert(`For sound '${soundVal}' and matching color is '${colorVal}'`);
+        sound.current.value='';
+        color.current.value='';
     };
 
     return (
